@@ -1,0 +1,15 @@
+<table class="table">
+	<tr>
+		<td>Usuario</td>
+		<td>Editar</td>
+		<td>Eliminar</td>
+	</tr>
+	<tr>
+	<%@users.each do |u|%>
+		<td><%= u.name%></td>
+		<td>
+        <%= link_to 'Eliminar', page_path(u), method: :delete, data: { confirm: 'Estás seguro que deseas eliminar el Usuario?' }, class: 'btn btn-sm btn-danger' %></td>
+        <td><%= form.check_box :admin %></td>
+        <td><%= link_to 'Editar', page_path(u), method: :patch,class: 'btn btn-sm btn-success' %></td>
+		<%end%>
+</table>
